@@ -19,8 +19,8 @@
       <artifactId>docker-maven-plugin</artifactId>
       <version>0.4.10</version>
       <configuration>
-        <imageName>docker.today36524.com.cn:5000/basic/redis:3.2.10-wzx-alpine</imageName>
-        <dockerDirectory>${basedir}</dockerDirectory>
+        <imageName>dapengsoa/redis-wzx-alpine:3.2.10</imageName>
+        <dockerDirectory>${basedir}/docker</dockerDirectory>
       </configuration>
       <executions>
        <execution>
