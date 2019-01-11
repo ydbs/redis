@@ -50,6 +50,7 @@ RUN mkdir /data && chown redis:redis /data
 RUN apk add supervisor
 RUN mkdir -p /var/run/sshd
 RUN mkdir -p /var/log/supervisor
+RUN mkdir -p /var/log/redis
 
 VOLUME /data
 WORKDIR /data
