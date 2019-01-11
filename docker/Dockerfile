@@ -46,11 +46,17 @@ RUN set -ex \
 	&& apk del .build-deps
 
 RUN mkdir /data && chown redis:redis /data
+
+RUN apk add supervisor
+RUN mkdir -p /var/run/sshd
+RUN mkdir -p /var/log/supervisor
+
 VOLUME /data
 WORKDIR /data
 
 COPY docker-entrypoint.sh /usr/local/bin/
+COPY supervisord.conf /etc/supervisord.conf
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 6379
-CMD [ "redis-server" ]
+CMD [ "/usr/bin/supervisord" ]
